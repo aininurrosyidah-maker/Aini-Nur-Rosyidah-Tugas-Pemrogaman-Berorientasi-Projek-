@@ -1,174 +1,231 @@
-#Python Functions
+# pylint: disable=redefined-outer-name, reimported, wildcard-import, unused-wildcard-import, redefined-builtin, invalid-name
+
+# Python Functions
+# Example: Python Function Call
 def greet():
-    print('Hello World!')
+    print('Annyeong!')
+    print()
 
 # call the function
 greet()
 
-print('Outside function')
+print('Hello Word!')
 print()
 
-#functions arguments
-def greet(name):
-    print("Hello", name)
+
+# Python Function Arguments
+def greet_with_name(name):
+    print("HOuminghou", name)
 
 # pass argument
-greet("John")
-print ()
-
-
-#Function with two arguments
-def add_numbers(num1, num2):
-    sum = num1 + num2
-    print("Sum: ", sum)
-
-# function call with two values
-add_numbers(5, 19)
+greet_with_name("neo")
 print()
 
-#The return Statement
+
+
+# Example: Function to Add Two Numbers
+# function with two arguments
+def add_numbers(num1, num2):
+    total = num1 + num2
+    print("Sum: ", total)
+    print()
+
+# function call with two values
+add_numbers(12, 7)
+
+
+# The return Statement
 # function definition
-def find_square(num):
-    result = num * num
+def find_square(number):
+    result = number * number
     return result
 
 # function call
-square = find_square(3)
+square = find_square(9)
 
 print('Square:', square)
 print()
 
 
-#Python Library Function
+# The pass Statement
+def future_function():
+    pass
+
+# this will execute without any action or error
+future_function()
+
+
+# Example: Python Library Function
 import math
 
 # sqrt computes the square root
-square_root = math.sqrt(4)
+square_root = math.sqrt(9)
 
-print("Square Root of 4 is",square_root)
+print("Square Root of 9 is", square_root)
+print()
 
-# pow() comptes the power
-power = pow(2, 3)
+# pow() computes the power
+power = pow(4, 5)
 
-print("2 to the power 3 is",power)
+print("4 to the power 5 is", power)
 print()
 
 
-#Python Function Arguments
-def add_numbers(a, b):
-    sum = a + b
-    print('Sum:', sum)
 
-add_numbers(2, 3)
-print()
+# Python Function Arguments
+# Example 1: Python Function Arguments
+def add_numbers_simple(a, b):
+    total = a + b
+    print('Sum:', total)
+    print()
+
+add_numbers_simple(13, 7)
 
 
-#Function Argument with Default Values
-def add_numbers( a = 7,  b = 8):
-    sum = a + b
-    print('Sum:', sum)
+
+# Function Argument with Default Values
+def add_numbers_defaults(a=6, b=2):
+    total = a + b
+    print('Sum:', total)
+    print()
 
 
 # function call with two arguments
-add_numbers(2, 3)
+add_numbers_defaults(5, 3)
 
-#  function call with one argument
-add_numbers(a = 2)
+# function call with one argument
+add_numbers_defaults(a=5)
 
 # function call with no arguments
-add_numbers()
-print ()
+add_numbers_defaults()
+print()
 
 
-#Python Keyword Argument
+# Python Keyword Argument
 def display_info(first_name, last_name):
     print('First Name:', first_name)
     print('Last Name:', last_name)
+    print()
 
-display_info(last_name = 'Cartman', first_name = 'Eric')
-print ()
+display_info(last_name='Neo', first_name='Hou')
 
 
-#Python Function With Arbitrary Arguments
-# program to find sum of multiple numbers 
+# Python Function With Arbitrary Arguments
+# program to find sum of multiple numbers
 
 def find_sum(*numbers):
     result = 0
-    
-    for num in numbers:
-        result = result + num
-    
+
+    for number in numbers:
+        result = result + number
+
     print("Sum = ", result)
+    print()
 
 # function call with 3 arguments
-find_sum(1, 2, 3)
+find_sum(4, 5, 6)
 
 # function call with 2 arguments
-find_sum(4, 9)
-print()
+find_sum(8, 9)
 
 
-#Python Variable Scope
-def greet():
-    message = 'Hello'
+# Python Variable Scope
+# Python Local Variables
+def greet_local():
+
+    # local variable
+    message = 'Annyeong'
+
     print('Local', message)
-greet()
+    print()
 
-print(message)
-print()
+greet_local()
+
+# try to access message variable
+# outside greet() function
+# print(message)
 
 
-#Python Global Variables
-message = 'Hello'
-def greet():
+# Python Global Variables
+# declare global variable
+global_message = 'Annyeong'
+
+def greet_global():
     # declare local variable
-    print('Local', message)
-greet()
+    print('Local', global_message)
+    print()
 
-print('Global', message)
+greet_global()
+print('Global', global_message)
 print()
 
-#Python Nonlocal Variables
-def outer():
-    message = 'local'
 
-    # nested function  
+# Python Nonlocal Variables
+# outside function
+def outer():
+    outer_message = 'local'
+
+    # nested function
     def inner():
 
         # declare nonlocal variable
-        nonlocal message
+        nonlocal outer_message
 
-        message = 'nonlocal'
-        print("inner:", message)
+        outer_message = 'nonlocal'
+        print("inner:", outer_message)
+        print()
 
     inner()
-    print("outer:", message)
+    print("outer:", outer_message)
+    print()
+
 outer()
-print()
 
 
-#Python Global Keyword
+# Python Global Keyword
+# Access and Modify Python Global Variable
 c = 1 # global variable
 
 def add():
     print(c)
 
 add()
+
+# Output: 1
+
+
 # global variable
-c = 1 
+c = 1
 
-def add():
+def add_pass():
 
-     # increment c by 2
-    c = c + 2
+    # increment c by 2
+    # c = c + 2
+    # print(c)
+    pass
 
-    print(c)
-
-add()
-print()
+# add_pass()
 
 
-#Python Recursion
+# Example: Updating a value from inside a function without using global
+# global variable
+c = 1
+
+def add_global(value):
+
+    # increment value by 2
+    value = value + 2
+
+    print(value)
+    return value
+
+c = add_global(c)
+
+# Output: 3
+
+
+# Python Recursion
+# Example of a recursive function
 def factorial(x):
     """This is a recursive function
     to find the factorial of an integer"""
@@ -183,76 +240,50 @@ num = 3
 print("The factorial of", num, "is", factorial(num))
 print()
 
-def recursor():
-    recursor()
-recursor()
-print()
 
-
-#Python Modules
-#Import Python Standard Library Modules
-import math
+# Python Modules
+# Import Python Standard Library Modules
+# math was already imported at the top of this file
 # use math.pi to get value of pi
 print("The value of pi is", math.pi)
-print()
 
-#Python import with Renaming
-# import module by renaming it
-import math as m
+
+# Python import with Renaming
+# create a shorter alias for the already imported module
+m = math
 
 print(m.pi)
 print()
 
+# Output: 3.141592653589793
 
-#Python from...import statement
-#import only pi from math module
+
+# Python from...import statement
+# import only pi from math module
 from math import pi
 
 print(pi)
 print()
 
+# Output: 3.141592653589793
 
-#Import all names
-# import all names from the standard module math
-from math import *
 
+# Import only the names you need
+# use a specific function or constant instead of wildcard import
 print("The value of pi is", pi)
 print()
 
 
-#The dir() built-in function
-print(dir(example))
-
-['__builtins__',
-'__cached__',
-'__doc__',
-'__file__',
-'__initializing__',
-'__loader__',
-'__name__',
-'__package__',
-'add']
+# Python Main function
+# Running Python File as a Script
+print(__name__)
 print()
 
-
-a = 1
-b = "hello"
-
-import math
-
-print(dir())
-
-['__builtins__', '__doc__', '__name__', 'a', 'b', 'math', 'pyscripter']
-print()
-
-
-#Python Main function
-#Using if conditional with __name__
+# Using if conditional with __name__
 def main():
-    print("Hello World")
+    print("Annyeonghaseo")
+    print()
 
-if __name__=="__main__":
+if __name__ == "__main__":
     main()
-print()
-
-
+    print()

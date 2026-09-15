@@ -9,7 +9,7 @@ print(os.getcwd())
 
 # Changing Directory in Python
 # change directory
-os.chdir(r'C:\Users\aqila\OneDrive\Dokumen\Pemrograman Berorientasi Objek')
+os.chdir(r'C::/media/aini/504EAA914EAA6F80/python-projek')
 
 print(os.getcwd())
 
