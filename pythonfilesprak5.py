@@ -1,70 +1,48 @@
-# Get Current Directory in Python
+import os
+
+print(os.getcwd())
+
+
+# change directory
+os.chdir('/media/aini/504EAA914EAA6F80/python-projek')
+
+print(os.getcwd())
+os.mkdir('test')
+
+import os
+
+# melihat isi folder saat ini
+print(os.listdir())
+
+# rename directory
+if os.path.exists("test"):
+    os.rename("test", "new_one")
+    print("Folder berhasil diganti nama")
+else:
+    print("Folder test tidak ditemukan")
+
+# melihat hasil perubahan
+print(os.listdir())
+
+# delete "myfile.txt" file
+if os.path.exists("myfile.txt"):
+    os.remove("myfile.txt")
+    print("File berhasil dihapus")
+else:
+    print("File tidak ditemukan")
+
+
 import os
 import shutil
 
+# membuat folder contoh
+if not os.path.exists("mydir"):
+    os.mkdir("mydir")
 
-print(os.getcwd())
+print("Isi folder saat ini:")
+print(os.listdir())
 
-# Output: C:\Program Files\PyScripter
+# menghapus folder kosong
+os.rmdir("mydir")
 
-# Changing Directory in Python
-# change directory
-os.chdir(r'C::/media/aini/504EAA914EAA6F80/python-projek')
-
-print(os.getcwd())
-
-# Output: C:\Users\aqila\OneDrive\Dokumen\Pemrograman Berorientasi Objek
-
-# List Directories and Files in Python
-print(os.getcwd())
-# C:\Users\aqila\OneDrive\Dokumen\Pemrograman Berorientasi Objek
-
-# list all sub-directories
-os.listdir()
-# ['DLLs',
-# 'Doc',
-# 'include',
-# 'Lib',
-# 'libs',
-# 'LICENSE.txt',
-# 'NEWS.txt',
-# 'python.exe',
-# 'pythonw.exe',
-# 'README.txt',
-# 'Scripts',
-# 'tcl',
-# 'Tools']
-
-# os.listdir('G:\\')
-# ['$RECYCLE.BIN',
-# 'Movies',
-# 'Music',
-# 'Photos',
-# 'Series',
-# 'System Volume Information']
-
-# Making a New Directory in Python
-# os.mkdir('test')
-
-# os.listdir()
-# ['test']
-
-# Renaming a Directory or a File
-# os.listdir()
-# ['test']
-
-# rename a directory
-# os.rename('test','new_one')
-
-# os.listdir()
-# ['new_one']
-
-# Removing Directory or File in Python
-# delete "myfile.txt" file
-# os.remove("myfile.txt")
-
-# delete the empty directory "mydir"
-# os.rmdir("mydir")
-
-# delete "mydir" directory and all of its contents
-# shutil.rmtree("mydir")
+print("Folder mydir berhasil dihapus")
